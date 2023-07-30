@@ -112,6 +112,7 @@ Download docker on your machine with the link: https://www.docker.com/products/d
 Run the command in your terminal
 
 **note: If you use windows you will need to use Ubuntu LTS, available on the microsoft store - link: https://apps.microsoft.com/store/detail/ubuntu-20046-lts/9MTTCL66CPXJ**
+
 **note: the terminal needs is in the root of the project**
 
 ```
