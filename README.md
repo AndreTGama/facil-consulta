@@ -60,7 +60,7 @@ Run command in terminal
     php artisan migrate:refresh --seed
 ```
 
-## Step five
+## Step six
 
 Run command in terminal
 
