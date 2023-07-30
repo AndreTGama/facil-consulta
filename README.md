@@ -71,9 +71,12 @@ Run command in terminal
 
 
 ### With docker
+
 ## Step One
 
-Download docker on your machine with the link: https://www.docker.com/products/docker-desktop/
+Download composer on your machine with the link: https://getcomposer.org/download/
+
+**note: composer needs PHP installed on the machine**
 
 Make a clone of this project using the command
 
@@ -85,6 +88,29 @@ Make a clone of this project using the command
 
 Run the command in your terminal
 
+**note: the terminal needs is in the root of the project**
+
+```
+    composer install
+```
+
+## Step Three
+
+Run command in terminal
+
+```
+    php artisan jwt:secret
+```
+**note: This command will create your JWT key, don't share it with anyone**
+## Step four
+
+Download docker on your machine with the link: https://www.docker.com/products/docker-desktop/
+
+
+## Step five
+
+Run the command in your terminal
+
 **note: If you use windows you will need to use Ubuntu LTS, available on the microsoft store - link: https://apps.microsoft.com/store/detail/ubuntu-20046-lts/9MTTCL66CPXJ**
 **note: the terminal needs is in the root of the project**
 
@@ -92,7 +118,7 @@ Run the command in your terminal
     ./vendor/bin/sail up
 ```
 
-## Step Three
+## Step six
 
 Configure the .env file, if not, copy the .env-example file and rename it to .env and configure the database connection information
 
@@ -105,7 +131,7 @@ Configure the .env file, if not, copy the .env-example file and rename it to .en
     DB_PASSWORD={password}
 ```
 
-## Step four
+## Step seven
 
 create a alias for sail
 
@@ -115,7 +141,7 @@ create a alias for sail
 
 **note: This command will create your JWT key, don't share it with anyone**
 
-## Step five
+## Step eight
 
 Run command in terminal
 
@@ -123,7 +149,7 @@ Run command in terminal
     sail artisan migrate:refresh --seed
 ```
 
-## Step five
+## Step nine
 
 Run command in terminal
 
