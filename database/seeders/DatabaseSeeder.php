@@ -13,12 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            CitiesSeeder::class
+            CitiesSeeder::class,
+            UserSeeder::class
         ]);
 
-        \App\Models\Doctors::factory(50)->create();
-        \App\Models\Patients::factory(50)->create();
-        \App\Models\DoctorsPatients::factory(50)->create();
-        \App\Models\User::factory(2)->create();
+        \App\Models\Doctors::factory(100)->create();
+        \App\Models\Patients::factory(100)->create();
+        \App\Models\DoctorsPatients::factory(100)->create();
+        \App\Models\User::factory(1)->create();
     }
 }

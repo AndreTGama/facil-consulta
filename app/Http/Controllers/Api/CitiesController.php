@@ -44,15 +44,7 @@ class CitiesController extends Controller
             if(empty($city)) throw new \Exception('City not found');
 
             $doctors = Doctors::where('cidade_id', $id_city)->get();
-
-            return ReturnMessage::message(
-                false,
-                "All Doctors in city: $city->nome - $city->estado",
-                "All Doctors in city: $city->nome - $city->estado",
-                null,
-                $doctors,
-                200
-            );
+            return response()->json($doctors, 200);
 
         } catch (\Exception $e) {
             return ReturnMessage::message(

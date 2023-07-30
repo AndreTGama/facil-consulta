@@ -36,6 +36,16 @@ class DoctorsPatients extends Model
         'updated_at',
         'deleted_at'
     ];
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'date:Y-m-d H:i:s',
+        'updated_at' => 'date:Y-m-d H:i:s',
+        'deleted_at' => 'date:Y-m-d H:i:s',
+    ];
     /**
      * Os atributos que devem ser alterados para datas.
      *

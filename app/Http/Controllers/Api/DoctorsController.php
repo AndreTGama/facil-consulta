@@ -132,6 +132,7 @@ class DoctorsController extends Controller
         try {
             $patients = Patients::join('medico_paciente', 'medico_paciente.paciente_id', 'paciente.id')
                                 ->where('medico_id', $id_medico)
+                                ->select('paciente.*')
                                 ->get()
                                 ->makeVisible($this->showHidden);
 

@@ -8,7 +8,12 @@ use Tests\TestCase;
 
 class MedicosTest extends TestCase
 {
-    public function test_pegar_todos_medicos(): void
+    /**
+     * test_get_all_doctors
+     *
+     * @return void
+     */
+    public function test_get_all_doctors(): void
     {
         $response = $this->get('/api/medicos');
 

@@ -48,6 +48,16 @@ class Doctors extends Model
         'updated_at',
         'deleted_at'
     ];
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'date:Y-m-d H:i:s',
+        'updated_at' => 'date:Y-m-d H:i:s',
+        'deleted_at' => 'date:Y-m-d H:i:s',
+    ];
     /**
      * Pega a cidade que o médico pertence.
      */

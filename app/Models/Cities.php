@@ -48,6 +48,16 @@ class Cities extends Model
         'deleted_at'
     ];
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'date:Y-m-d H:i:s',
+        'updated_at' => 'date:Y-m-d H:i:s',
+        'deleted_at' => 'date:Y-m-d H:i:s',
+    ];
+    /**
      * Pega os médicos que estão relacionados com a tabela cidades.
      */
     public function doctors(): HasMany
