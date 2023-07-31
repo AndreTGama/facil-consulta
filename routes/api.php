@@ -24,8 +24,9 @@ Route::group([
     'controller' => CitiesController::class,
     'prefix' => 'cidades',
     'as' => 'cities.',
+    'middleware' => 'jwt',
 ], function () {
-    Route::get('/', 'get')->name('get');
+    Route::get('/', 'get')->name('get')->withoutMiddleware('jwt');
     Route::get('/{id_city}/medicos','getDoctors')->name('doctor');
 });
 

@@ -4,6 +4,8 @@ namespace App\Http\Requests\Patients;
 
 use App\Builder\ReturnMessage;
 use App\Rules\Patients\CpfExist;
+use App\Rules\Patients\VerifyCharactersCelphone;
+use App\Rules\Patients\VerifyCharactersCpf;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -27,8 +29,8 @@ class StorePatientsRequest extends FormRequest
     {
         return [
             'nome' => 'required|max:100',
-            'cpf' => ['required','max:20', new CpfExist],
-            'celular' => 'required|max:20'
+            'cpf' => ['required','max:20', new CpfExist, new VerifyCharactersCpf],
+            'celular' => ['required','max:20', new VerifyCharactersCelphone],
         ];
     }
     /**

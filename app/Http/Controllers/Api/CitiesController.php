@@ -13,9 +13,8 @@ class CitiesController extends Controller
     /**
      * get all cities in data base
      *
-     * @return JsonResponse
      */
-    public function get(): JsonResponse
+    public function get()
     {
         try {
             return response()->json(Cities::get(), 200);
