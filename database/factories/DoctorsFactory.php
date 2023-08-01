@@ -28,7 +28,7 @@ class DoctorsFactory extends Factory
         return [
             'nome' => fake()->name(),
             'especialidade' => $specialty[rand(0, 5)],
-            'cidade_id' => rand(1, 100),
+            'cidade_id' => rand(1, 50),
         ];
     }
 }

@@ -96,6 +96,8 @@ Run the command in your terminal
 
 ## Step Three
 
+Configure the .env file, if not, copy the .env-example file and rename it to .env
+
 Run command in terminal
 
 ```
@@ -121,15 +123,17 @@ Run the command in your terminal
 
 ## Step six
 
-Configure the .env file, if not, copy the .env-example file and rename it to .env and configure the database connection information
+Configure the database connection information.
+
+**Don't forget to use the root user**
 
 ```
     DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
+    DB_HOST=mysql
     DB_PORT=3306
-    DB_DATABASE={database name}
-    DB_USERNAME={user}
-    DB_PASSWORD={password}
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=password
 ```
 
 ## Step seven
