@@ -20,23 +20,8 @@ class PatientsController extends Controller
      */
     public function store(StorePatientsRequest $request): JsonResponse
     {
-        DB::beginTransaction();
-        try {
-            $patient = Patients::create($request->all());
-            DB::commit();
-
-            return response()->json($patient, 200);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return ReturnMessage::message(
-                true,
-                $e->getMessage(),
-                $e->getMessage(),
-                null,
-                null,
-                400
-            );
-        }
+       $patient = Patients::create($request->validated());
+        return response()->json($patient, 200);
     }
     /**
      * update
@@ -47,23 +32,8 @@ class PatientsController extends Controller
      */
     public function update(UpdatePatientsRequest $request, int $id_patient): JsonResponse
     {
-        DB::beginTransaction();
-        try {
-            $patient = Patients::findOrFail($id_patient);
-            $patient->update($request->all());
-            DB::commit();
-            return response()->json($patient, 200);
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return ReturnMessage::message(
-                true,
-                $e->getMessage(),
-                $e->getMessage(),
-                null,
-                null,
-                400
-            );
-        }
+        $patient = Patients::findOrFail($id_patient);
+        $patient->update($request->all());
+        return response()->json($patient, 200);
     }
 }

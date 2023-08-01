@@ -24,8 +24,8 @@ class DoctorsPatientsFactory extends Factory
     public function definition(): array
     {
         return [
-            'medico_id' => rand(1, 50),
-            'paciente_id' => rand(1, 50),
+            'medico_id' => rand(1, 100),
+            'paciente_id' => rand(1, 100),
         ];
     }
 }

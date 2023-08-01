@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Builder\ReturnMessage;
+use App\Exceptions\ApiException;
 use App\Http\Controllers\Controller;
 use App\Models\Cities;
 use App\Models\Doctors;
@@ -16,18 +16,7 @@ class CitiesController extends Controller
      */
     public function get()
     {
-        try {
-            return response()->json(Cities::get(), 200);
-        } catch (\Exception $e) {
-            return ReturnMessage::message(
-                false,
-                $e->getMessage(),
-                $e->getMessage(),
-                null,
-                null,
-                400
-            );
-        }
+        return response()->json(Cities::get(), 200);
     }
     /**
      * get all doctors in a city by id city
@@ -37,23 +26,11 @@ class CitiesController extends Controller
      */
     public function getDoctors(int $id_city): JsonResponse
     {
-        try {
-            $city = Cities::findOrFail($id_city);
+        $city = Cities::findOrFail($id_city);
 
-            if(empty($city)) throw new \Exception('City not found');
+        if(empty($city)) throw new ApiException('City not found');
 
-            $doctors = Doctors::where('cidade_id', $id_city)->get();
-            return response()->json($doctors, 200);
-
-        } catch (\Exception $e) {
-            return ReturnMessage::message(
-                false,
-                $e->getMessage(),
-                $e->getMessage(),
-                null,
-                null,
-                400
-            );
-        }
+        $doctors = Doctors::where('cidade_id', $id_city)->get();
+        return response()->json($doctors, 200);
     }
 }

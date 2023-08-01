@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Builder\ReturnMessage;
+use App\Exceptions\ApiException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\JsonResponse;
@@ -21,16 +22,8 @@ class AuthController extends Controller
             'password' => $request->password
         ];
 
-        if (!$token = auth('api')->attempt($credentials)) {
-            return ReturnMessage::message(
-                true,
-                'Unauthorized',
-                'Unauthorized',
-                null,
-                null,
-                401
-            );
-        }
+        if (!$token = auth('api')->attempt($credentials))
+            throw new ApiException('City not found', 401);
 
         $response = [
             'token' => $token,
@@ -54,17 +47,6 @@ class AuthController extends Controller
      */
     public function me(): JsonResponse
     {
-        try {
-            return response()->json(auth()->user());
-        } catch (\Exception $e) {
-            return ReturnMessage::message(
-                true,
-                $e->getMessage(),
-                $e->getMessage(),
-                null,
-                null,
-                401
-            );
-        }
+        return response()->json(auth()->user());
     }
 }

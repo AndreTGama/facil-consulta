@@ -26,7 +26,7 @@ class PatientsFactory extends Factory
         return [
             'nome' => fake()->name(),
             'cpf' => rand(10000000000, 99999999999),
-            'celular' => rand(1000000000, 99999999999),
+            'celular' => rand(10000000000, 999999999999),
         ];
     }
 }
